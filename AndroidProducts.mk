@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_lake.mk
+    $(LOCAL_DIR)/twrp_lake.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_lake-user \
-    omni_lake-userdebug \
-    omni_lake-eng
+    twrp_lake-user \
+    twrp_lake-userdebug \
+    twrp_lake-eng

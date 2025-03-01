@@ -6,6 +6,7 @@
 #
 
 LOCAL_PATH := device/xiaomi/lake
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -15,11 +16,13 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
+    android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-impl.recovery \
+    android.hardware.boot@1.2-service
 
+# Bootctrl
 PRODUCT_PACKAGES += \
-    bootctrl.mt6768
+    bootctrl
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.mt6768 \
@@ -33,3 +36,10 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     update_engine_sideload
+
+# Fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.1-impl-mock \
+    fastbootd
+
+

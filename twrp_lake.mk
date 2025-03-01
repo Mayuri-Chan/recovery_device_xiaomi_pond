@@ -17,7 +17,7 @@ $(call inherit-product, device/xiaomi/lake/device.mk)
 
 PRODUCT_DEVICE := lake
 PRODUCT_NAME := twrp_lake
-PRODUCT_BRAND := alps
+PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := lake
 PRODUCT_MANUFACTURER := xiaomi
 

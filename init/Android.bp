@@ -1,0 +1,14 @@
+cc_library_static {
+    name: "libinit_lake",
+    header_libs: [
+        "libbase_headers",
+    ],
+    cflags: [
+        "-Wall",
+    ],
+    static_libs: [
+        "libbase",
+    ],
+    srcs: ["init_lake.cpp"],
+    recovery_available: true,
+}

@@ -87,6 +87,7 @@ TARGET_BOARD_PLATFORM := mt6768
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # device-specific system props
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop

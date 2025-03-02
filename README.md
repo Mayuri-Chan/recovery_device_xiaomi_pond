@@ -1,4 +1,4 @@
-# Android device tree for alps lake (lake)
+# DeviceTree TWRP For Redmi 14C/Poco C75/Redmi A3 Pro (lake/pond)
 
 ```
 #

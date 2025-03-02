@@ -29,13 +29,11 @@ PRODUCT_PACKAGES += \
 
 # Bootctrl
 PRODUCT_PACKAGES += \
-    bootctrl
+    bootctrl \
+    bootctrl.recovery
 
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.mt6768 \
-    libgptutils \
-    libz \
-    libcutils
+PRODUCT_PACKAGES_DEBUG += \
+    bootctrl
 
 PRODUCT_PACKAGES += \
     otapreopt_script \

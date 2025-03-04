@@ -1,5 +1,5 @@
 cc_library_static {
-    name: "libinit_lake",
+    name: "libinit_lake.recovery",
     header_libs: [
         "libbase_headers",
     ],

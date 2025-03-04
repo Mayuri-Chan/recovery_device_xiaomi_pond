@@ -6,7 +6,7 @@
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Device Path
-DEVICE_PATH := devixe/xiaomi/lake
+DEVICE_PATH := device/xiaomi/lake
 
 # Build Hack
 BUILD_BROKEN_DUP_RULES := true

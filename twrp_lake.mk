@@ -1,35 +1,28 @@
-#
-# Copyright (C) 2025 The Android Open Source Project
-# Copyright (C) 2025 SebaUbuntu's TWRP device tree generator
-#
+# Copyright (C) 2017-2023 The Android Open Source Project
+# Copyright (C) 2014-2023 The Team Win LLC
 # SPDX-License-Identifier: Apache-2.0
-#
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Release name (automatically taken from this file's suffix)
+PRODUCT_RELEASE_NAME := $(lastword $(subst /, ,$(lastword $(subst _, ,$(firstword $(subst ., ,$(MAKEFILE_LIST)))))))
 
-# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+# Custom vendor used in build tree (automatically taken from this file's prefix)
+CUSTOM_VENDOR := $(lastword $(subst /, ,$(firstword $(subst _, ,$(firstword $(MAKEFILE_LIST))))))
 
-# Enable project quotas and casefolding for emulated storage without sdcardfs
-$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/$(CUSTOM_VENDOR)/config/common.mk)
 
-# Inherit some common twrp stuff.
-$(call inherit-product, vendor/twrp/config/common.mk)
+# OEM Info (automatically taken from device tree path)
+BOARD_VENDOR := $(or $(word 2,$(subst /, ,$(firstword $(MAKEFILE_LIST)))),$(value 2))
 
-# Inherit from lake device
-$(call inherit-product, device/xiaomi/lake/device.mk)
-
-PRODUCT_DEVICE := lake
-PRODUCT_NAME := twrp_lake
+# Device identifier. This must come after all inclusions.
+PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
+PRODUCT_NAME := $(CUSTOM_VENDOR)_$(PRODUCT_RELEASE_NAME)
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := lake
-PRODUCT_MANUFACTURER := xiaomi
+PRODUCT_MANUFACTURER := Xiaomi
 
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+# Device path for OEM device tree
+DEVICE_PATH := device/$(BOARD_VENDOR)/$(PRODUCT_DEVICE)
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="vnd_lake-user 12 SP1A.210812.016 V816.0.11.0.UGTMIXM release-keys"
-
-BUILD_FINGERPRINT := alps/vnd_lake/lake:12/SP1A.210812.016/V816.0.11.0.UGTMIXM:user/release-keys
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, $(DEVICE_PATH)/device.mk)

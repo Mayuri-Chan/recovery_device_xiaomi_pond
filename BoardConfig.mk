@@ -5,31 +5,8 @@
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
-# Device Path
-DEVICE_PATH := device/xiaomi/lake
-
 # Build Hack
 BUILD_BROKEN_DUP_RULES := true
-
-# Virtual A/B
-ENABLE_VIRTUAL_AB := true
-
-AB_OTA_UPDATER := true
-
-# A/B updater updatable partitions list. Keep in sync with the partition list
-# with "_a" and "_b" variants in the device. Note that the vendor can add more
-# more partitions to this list for the bootloader and radio.
-AB_OTA_PARTITIONS += \
-    boot \
-    dtbo \
-    product \
-    system \
-    system_ext \
-    vbmeta \
-    vbmeta_system \
-    vbmeta_vendor \
-    vendor \
-    vendor_boot
 
 # Architecture
 TARGET_ARCH := arm64
@@ -61,7 +38,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
 # Platform
-TARGET_BOARD_PLATFORM := mt6768
+TARGET_BOARD_PLATFORM := mt6789
 
 # Kernel
 TARGET_KERNEL_ARCH := arm64
@@ -71,9 +48,9 @@ BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_PAGE_SIZE           := 4096
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_KERNEL_BASE         := 0x40078000
-BOARD_KERNEL_OFFSET       := 0x0bc08000
+BOARD_KERNEL_OFFSET       := 0x00008000
 BOARD_RAMDISK_OFFSET      := 0x07c08000
-BOARD_TAGS_OFFSET         := 0x07c88000
+BOARD_TAGS_OFFSET         := 0x0bc08000
 BOARD_DTB_OFFSET          := 0x0bc08000
 
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
@@ -146,20 +123,20 @@ BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT :=
 
 # Crypto
-TW_INCLUDE_CRYPTO := false
-TW_INCLUDE_CRYPTO_FBE := false
-TW_INCLUDE_FBE_METADATA_DECRYPT := false
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_METADATA_PARTITION := true
 
 # Encryption
-PLATFORM_VERSION := 14
-PLATFORM_VERSION_LAST_STABLE := 14
+PLATFORM_VERSION := 13
+PLATFORM_VERSION_LAST_STABLE := 13
 PLATFORM_SECURITY_PATCH := 2099-12-31
 BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # TWRP Configuration
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 RECOVERY_SDCARD_ON_DATA := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047

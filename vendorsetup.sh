@@ -5,6 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-add_lunch_combo omni_lake-user
-add_lunch_combo omni_lake-userdebug
-add_lunch_combo omni_lake-eng
+sudo apt install ccache -y
+export USE_CCACHE=1
+export CCACHE_EXEC=$(command -v ccache)
+ccache -M 5G 

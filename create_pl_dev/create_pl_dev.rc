@@ -19,6 +19,28 @@ on post-fs
     symlink /dev/block/mapper/preloader_raw_a /dev/block/platform/11230000.msdc/by-name/preloader_raw_a
     symlink /dev/block/mapper/preloader_raw_b /dev/block/platform/11230000.msdc/by-name/preloader_raw_b
 
+    # Support A/B feature for EMMC and UFS boot region
+    wait /dev/block/mmcblk0boot0 2
+    wait /dev/block/mmcblk0boot1 2
+
+    symlink /dev/block/sda /dev/block/mmcblk0boot0
+    symlink /dev/block/sdb /dev/block/mmcblk0boot1
+
+    symlink /dev/block/mmcblk0boot0 /dev/block/by-name/preloader_a
+    symlink /dev/block/mmcblk0boot1 /dev/block/by-name/preloader_b
+
+    symlink /dev/block/mmcblk0boot0 /dev/block/platform/bootdevice/by-name/preloader_a
+    symlink /dev/block/mmcblk0boot1 /dev/block/platform/bootdevice/by-name/preloader_b
+
+    symlink /dev/block/mmcblk0boot0 /dev/block/platform/11270000.ufshci/by-name/preloader_a
+    symlink /dev/block/mmcblk0boot1 /dev/block/platform/11270000.ufshci/by-name/preloader_b
+
+    symlink /dev/block/mmcblk0boot0 /dev/block/platform/11230000.mmc/by-name/preloader_a
+    symlink /dev/block/mmcblk0boot1 /dev/block/platform/11230000.mmc/by-name/preloader_b
+
+    symlink /dev/block/mmcblk0boot0 /dev/block/platform/11230000.msdc/by-name/preloader_a
+    symlink /dev/block/mmcblk0boot1 /dev/block/platform/11230000.msdc/by-name/preloader_b
+
 service create_pl_dev /system/bin/create_pl_dev
     user root
     group root

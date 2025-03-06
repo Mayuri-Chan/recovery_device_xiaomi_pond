@@ -79,6 +79,10 @@ PRODUCT_PACKAGES += \
     update_verifier \
     update_engine_sideload
 
+# MTK PlPath Utils
+PRODUCT_PACKAGES += \
+    mtk_plpath_utils.recovery
+
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \

@@ -93,7 +93,7 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
-TW_LOAD_VENDOR_MODULES := "ft8057m_spi.ko ft8057p_spi.ko xiaomi_touch.ko"
+TW_LOAD_VENDOR_MODULES := "ft8057m_spi.ko ft8057p_spi.ko xiaomi_touch.ko lct_tp.ko"
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

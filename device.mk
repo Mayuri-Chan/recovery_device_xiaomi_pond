@@ -21,6 +21,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Dynamic
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+LOCAL_PATH := device/xiaomi/lake
+
 # Virtual A/B
 ENABLE_VIRTUAL_AB := true
 

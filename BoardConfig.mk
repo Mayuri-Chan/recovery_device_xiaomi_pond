@@ -2,6 +2,9 @@
 # Copyright (C) 2014-2023 The Team Win LLC
 # SPDX-License-Identifier: Apache-2.0
 
+# Device Path
+DEVICE_PATH := device/xiaomi/lake
+
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
@@ -107,6 +110,7 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_lake
 TARGET_RECOVERY_DEVICE_MODULES := libinit_lake
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true

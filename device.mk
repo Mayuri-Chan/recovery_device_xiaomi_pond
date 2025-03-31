@@ -95,6 +95,10 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
+# Modules
+TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1)\")
+
 TW_LOAD_VENDOR_MODULES := "ft8057m_spi.ko ft8057p_spi.ko xiaomi_touch.ko lct_tp.ko icnl9916_spi.ko nt36528_spi.ko"
 
 # Soong namespaces

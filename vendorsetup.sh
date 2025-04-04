@@ -5,7 +5,3 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-sudo apt install ccache -y
-export USE_CCACHE=1
-export CCACHE_EXEC=$(command -v ccache)
-ccache -M 10G 

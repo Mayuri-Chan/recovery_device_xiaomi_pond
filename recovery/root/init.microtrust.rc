@@ -25,7 +25,8 @@ service teei_daemon /vendor/bin/teei_daemon \
     user system
     group system
     disabled
-   # oneshot
+    # eraselk: 20250405: add seclabel
+    seclabel u:r:recovery:s0
 
 on boot
     chown system system /sys/bus/platform/devices/utos/dcih_notify_test

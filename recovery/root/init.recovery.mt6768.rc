@@ -1,4 +1,5 @@
 import /init.microtrust.rc
+import /init.vibrator.rc
 
 on init
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
@@ -6,43 +7,42 @@ on init
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
 
-service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
+service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     interface android.hardware.gatekeeper@1.0::IGatekeeper default
     user root
     group root
     disabled
     seclabel u:r:recovery:s0
 
-service keymaster-4-1-beanpod /system/bin/android.hardware.keymaster@4.1-service.beanpod
+service vendor.keymaster-4-1-beanpod /vendor/bin/hw/android.hardware.keymaster@4.1-service.beanpod
     interface android.hardware.keymaster@4.0::IKeymasterDevice default
     interface android.hardware.keymaster@4.1::IKeymasterDevice default
     user root
     group root drmrpc
-    oneshot    
     disabled
     seclabel u:r:recovery:s0
 
 on property:vendor.sys.listener.registered=true
-    start keymaster-4-1-beanpod
+    start vendor.gatekeeper-1-0
 
 on property:hwservicemanager.ready=true
-    start keymaster-4-1-beanpod 
-    start gatekeeper-1-0
-   
+    start vendor.keymaster-4-1-beanpod 
+    start vendor.gatekeeper-1-0
+
 on property:ro.crypto.state=unsupported
     stop teei_daemon
-    stop keymaster-4-1-beanpod 
-    stop gatekeeper-1-0
+    stop vendor.keymaster-4-1-beanpod 
+    stop vendor.gatekeeper-1-0
     
 on property:ro.crypto.state=unencrypted
     stop teei_daemon    
-    stop keymaster-4-1-beanpod 
-    stop gatekeeper-1-0
+    stop vendor.keymaster-4-1-beanpod
+    stop vendor.gatekeeper-1-0
         
 on property:twrp.all.users.decrypted=true
     stop teei_daemon
-    stop keymaster-4-1-beanpod 
-    stop gatekeeper-1-0
+    stop vendor.keymaster-4-1-beanpod 
+    stop vendor.gatekeeper-1-0
 
 on boot
     start boot-hal-1-2

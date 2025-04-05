@@ -1,0 +1,17 @@
+service vendor.vibrator-default /vendor/bin/hw/android.hardware.vibrator-service.mediatek
+    class hal
+    user root
+    group root system
+    disabled
+    seclabel u:r:recovery:s0
+
+on init
+    write /sys/class/leds/vibrator/trigger "transient"
+    chown system system /sys/class/leds/vibrator/trigger
+    chown system system /sys/class/leds/vibrator/activate
+    chown system system /sys/class/leds/vibrator/brightness
+    chown system system /sys/class/leds/vibrator/duration
+    chown system system /sys/class/leds/vibrator/state
+
+on boot
+    start vendor.vibrator-default

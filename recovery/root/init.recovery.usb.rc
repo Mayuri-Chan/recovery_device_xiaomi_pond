@@ -9,17 +9,6 @@ on fs && property:ro.debuggable=0
     # set charging free due to it wait for USB activation
     start adbd
 
-on post-fs
-    # Support A/B feature for EMMC and UFS boot region
-    symlink /dev/block/sda /dev/block/mmcblk0boot0
-    symlink /dev/block/sdb /dev/block/mmcblk0boot1
-    symlink /dev/block/mmcblk0boot0 /dev/block/platform/bootdevice/by-name/preloader_a
-    symlink /dev/block/mmcblk0boot1 /dev/block/platform/bootdevice/by-name/preloader_b
-    symlink /dev/block/mmcblk0boot0 /dev/block/by-name/preloader_a
-    symlink /dev/block/mmcblk0boot1 /dev/block/by-name/preloader_b
-
-    exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
-
 on fs
     mkdir /config
     mkdir /dev/usb-ffs 0770 shell shell

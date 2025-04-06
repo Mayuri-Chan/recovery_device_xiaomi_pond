@@ -151,3 +151,9 @@ arm_dsu_pmu.ko
 mtk-smi-bwc.ko
 simtray.ko
 lc_charger_sysfs.ko
+ft8057m_spi.ko 
+ft8057p_spi.ko 
+icnl9916_spi.ko 
+lct_tp.ko 
+nt36528_spi.ko 
+xiaomi_touch.ko

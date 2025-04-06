@@ -165,6 +165,9 @@ TW_CUSTOM_CPU_POS := 50
 TW_CUSTOM_CLOCK_POS := 300
 TW_CUSTOM_BATTERY_POS := 800
 
+# Handle /data/media
+RECOVERY_SDCARD_ON_DATA := true
+
 # TWRP binaries tools
 TW_EXCLUDE_NANO := true
 TW_INCLUDE_LPDUMP := true

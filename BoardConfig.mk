@@ -32,6 +32,7 @@ TARGET_OTA_ASSERT_DEVICE := lake,lake_p,pond
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := lake
 TARGET_NO_BOOTLOADER := true
+TARGET_USES_UEFI := true
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6768
@@ -164,7 +165,6 @@ TW_CUSTOM_CLOCK_POS := 300
 TW_CUSTOM_BATTERY_POS := 800
 
 # Handle /data/media
-TW_PREPARE_DATA_MEDIA_EARLY := true
 RECOVERY_SDCARD_ON_DATA := true
 
 # TWRP binaries tools

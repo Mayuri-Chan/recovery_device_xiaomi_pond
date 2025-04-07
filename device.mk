@@ -57,28 +57,32 @@ AB_OTA_POSTINSTALL_CONFIG += \
 # API
 PRODUCT_SHIPPING_API_LEVEL := 32
 
-# Bootctrl
+# Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-mtkimpl \
+    android.hardware.boot@1.0-impl-1.2-mtkimpl \
     android.hardware.boot@1.2-mtkimpl.recovery \
-    android.hardware.boot@1.2-service
+    bootctrl.mt6768
 
-PRODUCT_PACKAGES_DEBUG += \
-     bootctrl
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-impl.recovery \
+    android.hardware.boot@1.2-service
 
 # Fastbootd
 TW_INCLUDE_FASTBOOTD := true
-
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.1-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock \
     fastbootd
 
-# Health Hal
+# Health HAL
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
+    android.hardware.health@2.1-service \
+    android.hardware.health@2.1-impl.recovery \
+    android.hardware.health@2.1-service.rc
 
-# create_pl_dev
+# Create Preloader Devices
 PRODUCT_PACKAGES += \
     create_pl_dev \
     create_pl_dev.recovery
@@ -89,7 +93,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster41 \
     libpuresoftkeymasterdevice
 
-RECOVERY_LIBRARY_SOURCE_FILES += \
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so

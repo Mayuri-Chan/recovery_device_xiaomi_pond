@@ -113,7 +113,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Modules
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules)\")
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell echo $(DEVICE_PATH)/recovery/root/vendor/lib/modules/*)\")
 
 # vendor_boot recovery ramdisk
 TARGET_NO_RECOVERY := true

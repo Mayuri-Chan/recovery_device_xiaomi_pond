@@ -12,6 +12,3 @@ on init
     chown system system /sys/class/leds/vibrator/brightness
     chown system system /sys/class/leds/vibrator/duration
     chown system system /sys/class/leds/vibrator/state
-
-on boot
-    start vendor.vibrator-default

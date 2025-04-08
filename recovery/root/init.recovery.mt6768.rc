@@ -72,7 +72,7 @@ on property:hwservicemanager.ready=true
 
 on property:ro.crypto.state=unsupported
     stop teei_daemon
-    stop vendir.keymaster-4-1-beanpod 
+    stop vendor.keymaster-4-1-beanpod 
     stop vendor.gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted

@@ -130,6 +130,9 @@ dsi_panel_c3n_46_03_0f_dsc_vdo.ko
 dsi_panel_c3n_46_03_0g_dsc_vdo.ko
 dsi_panel_c3n_35_02_0h_dsc_vdo.ko
 dsi_panel_c3n_44_03_0j_dsc_vdo.ko
+dsi_panel_c3n_43_02_0k_dsc_vdo.ko
+dsi_panel_c3n_35_0f_0l_dsc_vdo.ko
+dsi_panel_c3n_43_02_0n_dsc_vdo.ko
 mtk_disp_notify.ko
 mediatek-drm.ko
 aee_rs.ko

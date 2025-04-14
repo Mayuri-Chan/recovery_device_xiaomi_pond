@@ -291,6 +291,8 @@ alias of:N*T*Cmediatek,mt6779-uart-dma mtk_uart_apdma
 alias of:N*T*Cmediatek,mt6779-uart-dmaC* mtk_uart_apdma
 alias of:N*T*Cmediatek,mt6765-cqdma mtk_cqdma
 alias of:N*T*Cmediatek,mt6765-cqdmaC* mtk_cqdma
+alias of:N*T*Cdsi_panel_c3n,lcm dsi_panel_c3n_43_02_0n_dsc_vdo
+alias of:N*T*Cdsi_panel_c3n,lcmC* dsi_panel_c3n_43_02_0n_dsc_vdo
 alias of:N*T*Chx83112b,auo,cmd panel_hx83112b_auo_cmd_60hz_rt5081
 alias of:N*T*Chx83112b,auo,cmdC* panel_hx83112b_auo_cmd_60hz_rt5081
 alias of:N*T*Cmediatek,mt6983-disp-tdshp mediatek_drm
@@ -767,6 +769,8 @@ alias of:N*T*Cmediatek,pd_adapterC* mtk_pd_adapter
 alias of:N*T*Cdsi_panel_c3n,lcm dsi_panel_c3n_35_0f_0e_dsc_vdo
 alias of:N*T*Cdsi_panel_c3n,lcmC* dsi_panel_c3n_35_0f_0e_dsc_vdo
 alias net-pf-16-proto-16-family-nl80211 cfg80211
+alias of:N*T*Cdsi_panel_c3n,lcm dsi_panel_c3n_35_0f_0l_dsc_vdo
+alias of:N*T*Cdsi_panel_c3n,lcmC* dsi_panel_c3n_35_0f_0l_dsc_vdo
 alias platform:musb-hdrc musb_hdrc
 alias of:N*T*Cmediatek,mt6789-usb20 musb_hdrc
 alias of:N*T*Cmediatek,mt6789-usb20C* musb_hdrc
@@ -952,6 +956,8 @@ alias of:N*T*Cdsi_panel_c3n,lcm dsi_panel_c3n_43_02_0a_dsc_vdo
 alias of:N*T*Cdsi_panel_c3n,lcmC* dsi_panel_c3n_43_02_0a_dsc_vdo
 alias of:N*T*Carm,dsu-pmu arm_dsu_pmu
 alias of:N*T*Carm,dsu-pmuC* arm_dsu_pmu
+alias of:N*T*Cdsi_panel_c3n,lcm dsi_panel_c3n_43_02_0k_dsc_vdo
+alias of:N*T*Cdsi_panel_c3n,lcmC* dsi_panel_c3n_43_02_0k_dsc_vdo
 alias of:N*T*Cmediatek,mt6323 mt6397
 alias of:N*T*Cmediatek,mt6323C* mt6397
 alias of:N*T*Cmediatek,mt6357 mt6397

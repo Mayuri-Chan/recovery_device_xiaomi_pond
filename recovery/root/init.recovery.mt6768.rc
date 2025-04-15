@@ -20,6 +20,7 @@ on early-init
     insmod /vendor/lib/modules/lct_tp.ko
     insmod /vendor/lib/modules/nt36528_spi.ko
     insmod /vendor/lib/modules/xiaomi_touch.ko
+    insmod /vendor/lib/modules/mt6358-accdet.ko
     
 on post-fs
     # Support A/B feature for EMMC and UFS boot region

@@ -18,17 +18,17 @@
 #
 
 # Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/xiaomi/lake/device.mk)
+$(call inherit-product, device/xiaomi/pond/device.mk)
 
 # Inherit any OrangeFox-specific settings
-#$(call inherit-product-if-exists, device/xiaomi/lake/fox_lake.mk)
+#$(call inherit-product-if-exists, device/xiaomi/pond/fox_pond.mk)
 
 # Inherit some common TWRP stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := lake
-PRODUCT_NAME := twrp_lake
+PRODUCT_DEVICE := pond
+PRODUCT_NAME := twrp_pond
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := Redmi 14C
 PRODUCT_MANUFACTURER := Xiaomi

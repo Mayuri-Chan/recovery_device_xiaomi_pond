@@ -1,5 +1,5 @@
 cc_library_static {
-    name: "libinit_lake",
+    name: "libinit_pond",
     header_libs: [
         "libbase_headers",
     ],
@@ -9,6 +9,6 @@ cc_library_static {
     static_libs: [
         "libbase",
     ],
-    srcs: ["init_lake.cpp"],
+    srcs: ["init_pond.cpp"],
     recovery_available: true,
 }

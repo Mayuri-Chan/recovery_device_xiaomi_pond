@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 # Device Path
-DEVICE_PATH := device/xiaomi/lake
+DEVICE_PATH := device/xiaomi/pond
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -27,7 +27,7 @@ TARGET_2ND_CPU_VARIANT := $(TARGET_CPU_VARIANT)
 TARGET_2ND_CPU_VARIANT_RUNTIME := $(TARGET_CPU_VARIANT)
 
 # Assertation
-TARGET_OTA_ASSERT_DEVICE := lake,lake_p,pond
+TARGET_OTA_ASSERT_DEVICE := lake,lake_p,pond,pond_p
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := lake
@@ -103,8 +103,8 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_lake
-TARGET_RECOVERY_DEVICE_MODULES := libinit_lake
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_pond
+TARGET_RECOVERY_DEVICE_MODULES := libinit_pond
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -185,4 +185,4 @@ TWRP_INCLUDE_LOGCAT := true
 TW_LOAD_VENDOR_BOOT_MODULES := true
 
 # Maintainer
-TW_DEVICE_VERSION := takashiiprjkt
+TW_DEVICE_VERSION := wulan17

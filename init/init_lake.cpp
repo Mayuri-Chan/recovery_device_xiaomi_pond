@@ -53,7 +53,13 @@ void model_property_override(const std::string& device, const std::string& model
 void vendor_load_properties() {
     const std::string sku = GetProperty("ro.boot.product.hardware.sku", "");
 
-    if (sku == "c3nn") {
+    if (sku == "c3na") {
+        model_property_override("pond", "Redmi 14C");
+    } else if (sku == "c3ncn") {
+        model_property_override("pond", "Redmi 14C");
+    } else if (sku == "c3nl") {
+        model_property_override("pond", "Redmi 14C");
+    } else if (sku == "c3nn") {
         model_property_override("lake", "Redmi 14C");
     } else if (sku == "c3npg") {
         model_property_override("lake", "Poco C75");

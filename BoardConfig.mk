@@ -179,9 +179,6 @@ TW_INCLUDE_REPACKTOOLS := true
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
 
-# Haptics
-#TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-
 TW_LOAD_VENDOR_BOOT_MODULES := true
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 TW_LOAD_VENDOR_MODULES := "mt6358-accdet.ko xiaomi_touch.ko lct_tp.ko nt36528_spi.ko nt36528_spi.ko ft8057m_spi.ko ft8057p_spi.ko icnl9916_spi.ko"

@@ -11,17 +11,6 @@ on late-fs
     # Mount RW partitions which need run fsck
     mount_all /first_stage_ramdisk/fstab.mt6768 --late
 
-# Touch modules
-on early-init
-
-    insmod /vendor/lib/modules/ft8057m_spi.ko
-    insmod /vendor/lib/modules/ft8057p_spi.ko
-    insmod /vendor/lib/modules/icnl9916_spi.ko
-    insmod /vendor/lib/modules/lct_tp.ko
-    insmod /vendor/lib/modules/nt36528_spi.ko
-    insmod /vendor/lib/modules/xiaomi_touch.ko
-    insmod /vendor/lib/modules/mt6358-accdet.ko
-
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
 

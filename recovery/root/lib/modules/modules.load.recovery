@@ -50,6 +50,7 @@ leds-mtk.ko
 leds-mtk-disp.ko
 leds-mtk-pwm.ko
 mac80211.ko
+regulator-vibrator.ko
 blocktag.ko
 cqhci.ko
 mtk-mmc-autok.ko

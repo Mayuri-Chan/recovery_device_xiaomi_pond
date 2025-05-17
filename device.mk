@@ -18,6 +18,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 # Configure launch_with_vendor_ramdisk.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
+PRODUCT_PROPERTY_OVERRIDES += ro.twrp.vendor_boot=true
+
 # Dynamic
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
@@ -26,16 +28,20 @@ ENABLE_VIRTUAL_AB := true
 AB_OTA_UPDATER := true
 
 AB_OTA_PARTITIONS += \
+    init_boot \
     boot \
     dtbo \
     product \
     system \
     system_ext \
+    system_dlkm \
+    odm_dlkm \
     vbmeta \
     vbmeta_system \
     vbmeta_vendor \
     vendor \
-    vendor_boot
+    vendor_boot \
+    vendor_dlkm
 
 # Update engine
 PRODUCT_PACKAGES_DEBUG += \

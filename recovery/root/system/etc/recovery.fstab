@@ -4,6 +4,9 @@ vendor                                  /vendor                ext4   ro,barrier
 product                                 /product               ext4   ro,barrier=1,discard    wait,slotselect,avb,logical,first_stage_mount
 system_ext                              /system_ext            ext4   ro,barrier=1,discard    wait,slotselect,avb,logical,first_stage_mount
 mi_ext                                  /mi_ext                ext4   ro,barrier=1,discard    wait,slotselect,avb,logical,first_stage_mount
+vendor_dlkm                             /vendor_dlkm           ext4   ro                      wait,slotselect,avb,logical,first_stage_mount
+odm_dlkm                                /odm_dlkm              ext4   ro                      wait,slotselect,avb,logical,first_stage_mount
+system_dlkm                             /odm_dlkm              ext4   ro                      wait,slotselect,avb,logical,first_stage_mount
 /dev/block/by-name/metadata             /metadata              ext4                           noatime,nosuid,nodev,discard wait,check,formattable
 /dev/block/by-name/userdata             /data                  f2fs                           noatime,nosuid,nodev,discard,noflush_merge,checkpoint_merge,reserve_root=134217,resgid=1065,fsync_mode=nobarrier,gc_merge,atgc,inlinecrypt wait,check,formattable,quota,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
 /dev/block/by-name/rescue               /cache                 ext4   auto                    noatime,nosuid,nodev,noauto_da_alloc,discard wait,check,formattable
@@ -41,6 +44,7 @@ mi_ext                                  /mi_ext                ext4   ro,barrier
 /dev/block/by-name/gpueb                /gpueb                 emmc   defaults                defaults
 /dev/block/by-name/mcf_ota              /mcf_ota               emmc   defaults                defaults
 /dev/block/by-name/vendor_boot          /vendor_boot           emmc   defaults                defaults
+/dev/block/by-name/init_boot            /init_boot             emmc   defaults                defaults
 /dev/block/by-name/mvpu_algo1           /mvpu_algo1            emmc   defaults                defaults
 /dev/block/by-name/mvpu_algo2           /mvpu_algo2            emmc   defaults                defaults
 /dev/block/by-name/apusys1              /apusys1               emmc   defaults                defaults

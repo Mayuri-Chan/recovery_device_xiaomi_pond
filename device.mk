@@ -26,16 +26,20 @@ ENABLE_VIRTUAL_AB := true
 AB_OTA_UPDATER := true
 
 AB_OTA_PARTITIONS += \
+    init_boot \
     boot \
     dtbo \
     product \
     system \
     system_ext \
+    system_dlkm \
+    odm_dlkm \
     vbmeta \
     vbmeta_system \
     vbmeta_vendor \
     vendor \
-    vendor_boot
+    vendor_boot \
+    vendor_dlkm
 
 # Update engine
 PRODUCT_PACKAGES_DEBUG += \

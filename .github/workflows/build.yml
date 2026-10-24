@@ -1,0 +1,76 @@
+name: Build and verify pond vendor_boot
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [twrp-12.1, "codex/**"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 350
+    steps:
+      - name: Check out device tree
+        uses: actions/checkout@v4
+        with:
+          path: device-tree
+
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android \
+                      /usr/local/share/boost /opt/hostedtoolcache/CodeQL
+          sudo apt-get clean
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-core gnupg flex bison gperf build-essential zip \
+            curl zlib1g-dev libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev \
+            lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig \
+            python3 python-is-python3 openjdk-11-jdk bc imagemagick lz4 rsync
+          sudo apt-get install -y libncurses5 || sudo apt-get install -y libtinfo5
+
+      - name: Install repo tool
+        run: |
+          mkdir -p "$HOME/bin"
+          curl -fsSL https://storage.googleapis.com/git-repo-downloads/repo -o "$HOME/bin/repo"
+          chmod a+x "$HOME/bin/repo"
+          echo "$HOME/bin" >> "$GITHUB_PATH"
+
+      - name: Sync TWRP 12.1 manifest
+        run: |
+          unset ANDROID_HOME ANDROID_SDK_ROOT
+          mkdir -p "$GITHUB_WORKSPACE/aosp"
+          cd "$GITHUB_WORKSPACE/aosp"
+          git config --global user.name ci
+          git config --global user.email ci@localhost
+          repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
+          repo sync -c -j"$(nproc)" --force-sync --no-clone-bundle --no-tags
+
+      - name: Add device tree
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/aosp/device/xiaomi/pond"
+          rsync -a --exclude=.git "$GITHUB_WORKSPACE/device-tree/" "$GITHUB_WORKSPACE/aosp/device/xiaomi/pond/"
+
+      - name: Build vendor_boot
+        run: |
+          cd "$GITHUB_WORKSPACE/aosp"
+          unset ANDROID_HOME ANDROID_SDK_ROOT
+          source build/envsetup.sh
+          lunch twrp_pond-userdebug
+          mka vendorbootimage -j2
+
+      - name: Verify image and print ramdisk table
+        run: AOSP_ROOT="$GITHUB_WORKSPACE/aosp" bash "$GITHUB_WORKSPACE/device-tree/ci/verify.sh"
+
+      - name: Upload verified image
+        uses: actions/upload-artifact@v4
+        with:
+          name: twrp-pond-vendor_boot
+          if-no-files-found: error
+          path: |
+            aosp/out/target/product/pond/vendor_boot.img
+            aosp/out/target/product/pond/*ramdisk*

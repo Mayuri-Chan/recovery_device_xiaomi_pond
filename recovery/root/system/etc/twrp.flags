@@ -1,20 +1,20 @@
 #<src>              <type> <mnt_point>                                     <flags>
-/metadata           ext4   /dev/block/by-name/metadata                     flags=display="Metadata";backup=1
-/data	            f2fs   /dev/block/by-name/userdata                     flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
+/metadata           ext4   /dev/block/by-name/md_udc                     flags=display="Metadata";backup=1
+/data               f2fs   /dev/block/by-name/userdata                     flags=fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption
 /cache              ext4   /dev/block/by-name/rescue                       flags=display="Cache";backup=1;wipeingui;wipeduringfactoryreset
 /persistent         emmc   /dev/block/by-name/frp                          flags=display="Persistent"
-/lk1                emmc   /dev/block/by-name/lk1                          flags=display="Bootloader1"
+/lk                 emmc   /dev/block/by-name/lk                          flags=display="Bootloader1"
 /lk2                emmc   /dev/block/by-name/lk2                          flags=display="Bootloader2"
 /para               emmc   /dev/block/by-name/para                         flags=display="Para"
 /misc               emmc   /dev/block/by-name/misc                         flags=display="Misc"
 /boot               emmc   /dev/block/by-name/boot                         flags=display="Boot";slotselect;backup=1;flashimg=1
+/init_boot          emmc   /dev/block/by-name/init_boot                    flags=display="Init Boot";slotselect;backup=1;flashimg=1
 /vbmeta_vendor      emmc   /dev/block/by-name/vbmeta_vendor                flags=display="VBMeta Vendor";slotselect;backup=1;flashimg=1
 /vbmeta_system      emmc   /dev/block/by-name/vbmeta_system                flags=display="VBMeta System";slotselect;backup=1;flashimg=1
 /logo               auto   /dev/block/by-name/logo                         flags=display="Logo";slotselect;backup=1
 /vendor_boot        emmc   /dev/block/by-name/vendor_boot                  flags=display="Vendor Boot";slotselect;backup=1;flashimg=1
 /dtbo               emmc   /dev/block/by-name/dtbo                         flags=display="Dtbo";slotselect;backup=1
 /vbmeta             emmc   /dev/block/by-name/vbmeta                       flags=display="VBMeta";slotselect;flashimg=1
-/cust               ext4   /dev/block/by-name/cust                         flags=display="Cust";flashimg=1;
 
 #IMEI
 /nvram_image        emmc   /dev/block/by-name/nvram                        flags=backup;display="IMEI"
